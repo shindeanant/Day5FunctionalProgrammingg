@@ -6,38 +6,24 @@ public class FunctionalProgramming {
 
 	public static void main(String[] args) {
 
-		double secondRoot = 0, firstRoot = 0;
+		Scanner input = new Scanner(System.in);
 
-		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the temperature in Fahrenheit: ");
+		double tempra = input.nextDouble();
 
-		System.out.println("Enter the value of a ::");
-		double a = sc.nextDouble();
+		System.out.print("Enter the wind speed in miles per hour: ");
+		double v = input.nextDouble();
 
-		System.out.println("Enter the value of b ::");
-		double b = sc.nextDouble();
+		if (tempra >= -58 && tempra <= 41 && v >= 2) {
 
-		System.out.println("Enter the value of c ::");
-		double c = sc.nextDouble();
+			double windChill = 35.74 + (0.6215 * tempra) + (0.4275 * tempra - 35.75) * (Math.pow(v, 0.16));
 
-		double delta = (b * b) - (4 * a * c);
+			System.out.println("The wind chill index is " + windChill);
 
-		double sqrt = Math.sqrt(delta);
+		} else
 
-		if (delta > 0) {
+			System.out.println("The temperature and/or wind speed is invalid.");
 
-			firstRoot = (-b + sqrt) / (2 * a);
-
-			secondRoot = (-b - sqrt) / (2 * a);
-
-			System.out.println("Roots are :: " + firstRoot + " and " + secondRoot);
-
-		} else if (delta == 0) {
-
-			System.out.println("Root is :: " + (-b + sqrt) / (2 * a));
-
-		} else {
-			System.out.println("roots ate not equal");
-		}
 	}
 
 }
